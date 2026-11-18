@@ -63,6 +63,16 @@ export const sections = [
     ],
   },
   {
+    id: "situation",
+    title: "01 Situation",
+    fields: [
+      { key: "areaOfOperation", label: "Area of Operation", kind: "text" },
+      { key: "enemyPresence", label: "Enemy Presence", kind: "textarea" },
+      { key: "friendlyPersonnel", label: "Friendly Personnel", kind: "textarea" },
+      { key: "civilianStatus", label: "Civilian status", kind: "textarea" },
+    ],
+  },
+  {
     id: "mission",
     title: "02 Mission",
     fields: [

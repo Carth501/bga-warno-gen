@@ -4,6 +4,7 @@ import type { OpordData } from './schema'
 import type { DocumentImage } from './images'
 import { Banner, Boot, Header } from './sections/Header'
 import { Mission } from './sections/Mission'
+import { Situation } from './sections/Situation'
 import { Sustainment } from './sections/Sustainment'
 
 export function Document({ data, images }: { data: OpordData; images: DocumentImage[] }) {
@@ -15,6 +16,7 @@ export function Document({ data, images }: { data: OpordData; images: DocumentIm
         <div className="doc">
           <Boot />
           <Header />
+          <Situation />
           <Mission images={images} />
           <Sustainment />
         </div>

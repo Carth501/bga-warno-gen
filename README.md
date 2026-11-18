@@ -2,6 +2,9 @@
 
 ## Documents and images
 
+The Situation section covers the area of operation, enemy presence, friendly
+personnel, and civilian status.
+
 Add optional PNG, JPEG, GIF, or WebP images in the Mission section. Change their
 captions, order, and displayed width (25–100%); they appear after the objectives
 in the preview and printed document. Image files retain their original resolution.
