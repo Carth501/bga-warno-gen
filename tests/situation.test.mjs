@@ -21,13 +21,50 @@ test('Situation fields appear before Mission and preserve multiline values', () 
   }
   const html = renderToStaticMarkup(createElement(Document, { data, images: [] }))
   assert.ok(html.indexOf('>SITUATION</span>') < html.indexOf('>MISSION</span>'))
-  const headers = [...html.matchAll(/<span class="([^"]*sec-title[^"]*)">(SITUATION|MISSION|GENERAL ORDERS|SUSTAINMENT)<\/span>/g)]
-  assert.equal(headers.length, 4)
+  const headers = [...html.matchAll(/<span class="([^"]*sec-title[^"]*)">(SITUATION|MISSION|GENERAL ORDERS|SUSTAINMENT|COMMAND AND SIGNAL)<\/span>/g)]
+  assert.equal(headers.length, 5)
   assert.ok(headers.every((header) => header[1] === headers[0][1]))
   assert.match(html, /AREA OF OPERATION.*North sector/)
   assert.match(html, /ENEMY PRESENCE.*First line\nSecond line/)
   assert.match(html, /FRIENDLY PERSONNEL.*Friendly units/)
   assert.match(html, /CIVILIAN STATUS.*Evacuated/)
+})
+
+test('Command and Signal follows Sustainment and displays multiline fields', () => {
+  const data = {
+    values: {
+      chainOfCommand: 'Commander\nDeputy',
+      commsNets: 'Primary net',
+      smokeAndSignals: 'Green smoke',
+      codewords: 'Codeword alpha',
+      sundialProcedure: 'Report position',
+    },
+    lists: {},
+  }
+  const html = renderToStaticMarkup(createElement(Document, { data, images: [] }))
+  const sustainment = html.indexOf('>SUSTAINMENT</span>')
+  const command = html.indexOf('>COMMAND AND SIGNAL</span>')
+  assert.ok(sustainment !== -1 && command > sustainment)
+  assert.match(html, /CHAIN OF COMMAND.*Commander\nDeputy/)
+  assert.match(html, /COMMS NETS.*Primary net/)
+  assert.match(html, /SMOKE &amp; SIGNALS.*Green smoke/)
+  assert.match(html, /CODEWORDS.*Codeword alpha/)
+  assert.match(html, /SUNDIAL PROCEDURE.*Report position/)
+
+  const form = renderToStaticMarkup(createElement(SchemaForm, {
+    data,
+    images: [],
+    onChange() {},
+    onImagesChange() {},
+    onPrint() {},
+    onReset() {},
+  }))
+  const sustainmentForm = form.indexOf('06 Sustainment')
+  const commandForm = form.indexOf('07 Command and Signal')
+  assert.ok(sustainmentForm !== -1 && commandForm > sustainmentForm)
+  for (const label of ['Chain of Command', 'Comms Nets', 'Smoke &amp; Signals', 'Codewords', 'Sundial Procedure']) {
+    assert.ok(form.includes(`${label}<textarea`))
+  }
 })
 
 test('General Orders appears between Mission and Sustainment with the requested fields', () => {

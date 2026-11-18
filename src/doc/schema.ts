@@ -141,6 +141,17 @@ export const sections = [
       },
     ],
   },
+  {
+    id: "commandAndSignal",
+    title: "07 Command and Signal",
+    fields: [
+      { key: "chainOfCommand", label: "Chain of Command", kind: "textarea" },
+      { key: "commsNets", label: "Comms Nets", kind: "textarea" },
+      { key: "smokeAndSignals", label: "Smoke & Signals", kind: "textarea" },
+      { key: "codewords", label: "Codewords", kind: "textarea" },
+      { key: "sundialProcedure", label: "Sundial Procedure", kind: "textarea" },
+    ],
+  },
 ] as const satisfies readonly SectionDef[];
 
 type AllFields = (typeof sections)[number]["fields"][number];
