@@ -111,6 +111,15 @@ export const sections = [
     ],
   },
   {
+    id: "generalOrders",
+    title: "03 General Orders",
+    fields: [
+      { key: "timeline", label: "Timeline", kind: "text" },
+      { key: "tasks", label: "Tasks", kind: "textarea" },
+      { key: "coordinationInstruction", label: "Coordination Instruction", kind: "textarea" },
+    ],
+  },
+  {
     id: "sustainment",
     title: "06 Sustainment",
     fields: [

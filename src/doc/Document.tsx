@@ -3,6 +3,7 @@ import { DocContext } from './context'
 import type { OpordData } from './schema'
 import type { DocumentImage } from './images'
 import { Banner, Boot, Header } from './sections/Header'
+import { GeneralOrders } from './sections/GeneralOrders'
 import { Mission } from './sections/Mission'
 import { Situation } from './sections/Situation'
 import { Sustainment } from './sections/Sustainment'
@@ -18,6 +19,7 @@ export function Document({ data, images }: { data: OpordData; images: DocumentIm
           <Header />
           <Situation />
           <Mission images={images} />
+          <GeneralOrders />
           <Sustainment />
         </div>
       </div>

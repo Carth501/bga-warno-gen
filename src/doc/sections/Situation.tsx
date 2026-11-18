@@ -4,7 +4,7 @@ import { Field, Section } from '../primitives'
 export function Situation() {
   return (
     <Section num="01" title="SITUATION">
-      <div className="situation-fields">
+      <div className="stacked-fields">
         <Field label="AREA OF OPERATION"><Val k="areaOfOperation" /></Field>
         <Field label="ENEMY PRESENCE"><MultiVal k="enemyPresence" /></Field>
         <Field label="FRIENDLY PERSONNEL"><MultiVal k="friendlyPersonnel" /></Field>

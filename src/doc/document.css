@@ -96,7 +96,7 @@
 .opord .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin: 10px 0; }
 .opord .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin: 10px 0; }
 .opord .field { background: var(--surface2); border: 1px solid var(--border); padding: 9px 12px; }
-.opord .situation-fields { display: grid; gap: 2px; }
+.opord .stacked-fields { display: grid; gap: 2px; }
 .opord .f-label { font-size: 20px; letter-spacing: 2px; color: var(--text-dim); margin-bottom: 5px; }
 .opord .f-val { font-size: 16px; color: var(--white); line-height: 1.4; }
 .opord .f-val.green { color: var(--green-bright); }
