@@ -23,7 +23,7 @@ function MissionImage({ image }: { image: DocumentImage }) {
 export function Mission({ images }: { images: DocumentImage[] }) {
   const objectives = useList('objectives')
   return (
-    <Section num="02" title="MISSION" tone="gold">
+    <Section num="02" title="MISSION">
       <p>
         <MultiVal k="missionStatement" />
       </p>

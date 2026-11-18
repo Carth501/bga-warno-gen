@@ -21,6 +21,9 @@ test('Situation fields appear before Mission and preserve multiline values', () 
   }
   const html = renderToStaticMarkup(createElement(Document, { data, images: [] }))
   assert.ok(html.indexOf('>SITUATION</span>') < html.indexOf('>MISSION</span>'))
+  const headers = [...html.matchAll(/<span class="([^"]*sec-title[^"]*)">(SITUATION|MISSION|SUSTAINMENT)<\/span>/g)]
+  assert.equal(headers.length, 3)
+  assert.ok(headers.every((header) => header[1] === headers[0][1]))
   assert.match(html, /AREA OF OPERATION.*North sector/)
   assert.match(html, /ENEMY PRESENCE.*First line\nSecond line/)
   assert.match(html, /FRIENDLY PERSONNEL.*Friendly units/)
