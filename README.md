@@ -19,6 +19,14 @@ reloaded or closed. Export a ZIP to preserve the entire document. The ZIP contai
 document with an exported ZIP or a legacy JSON export. Reset clears both fields
 and images.
 
+## GitHub Pages
+
+In the repository's **Settings → Pages**, select **GitHub Actions** as the
+build and deployment source. Push these changes to `main` to run the Pages
+workflow; subsequent pushes to `main` deploy automatically. The workflow can
+also be started manually from the Actions tab. The relative asset base supports
+both project Pages URLs and root or custom-domain URLs.
+
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
 Currently, two official plugins are available:
