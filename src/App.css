@@ -1,0 +1,174 @@
+:root {
+  color-scheme: dark;
+  --text: #9ca3af;
+  --text-h: #f3f4f6;
+  --bg: #16171d;
+  --border: #2e303a;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) 1fr;
+  height: 100vh;
+  text-align: left;
+}
+
+.pane {
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.form-pane {
+  border-right: 1px solid #2e303a;
+  background: #1b1c23;
+}
+
+.preview-pane {
+  background: #0f1014;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form h2 {
+  margin: 0;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  flex: 1;
+}
+
+.form label.inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+}
+
+.form input[type='text'],
+.form input[type='number'],
+.form input[type='date'],
+.form select,
+.form textarea {
+  padding: 6px 8px;
+  font: inherit;
+  border: 1px solid #3a3d4a;
+  background: #23252e;
+  color: #e5e7eb;
+  border-radius: 4px;
+}
+
+.form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid #3a3d4a;
+  border-radius: 4px;
+}
+
+.form .row {
+  display: flex;
+  gap: 8px;
+}
+
+.form .row input {
+  flex: 1;
+}
+
+.form button {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.form button.primary {
+  background: #1f4e79;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.form details {
+  border: 1px solid #3a3d4a;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.form summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.section-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.list-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid #2e303a;
+  border-radius: 4px;
+}
+
+.list-row-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.preview-pane .opord {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0;
+  }
+  html,
+  body {
+    background: #06090a;
+  }
+  .form-pane {
+    display: none;
+  }
+  .layout {
+    display: block;
+    height: auto;
+  }
+  .pane {
+    overflow: visible;
+  }
+  .preview-pane {
+    padding: 0;
+    background: none;
+  }
+  .preview-pane .opord {
+    box-shadow: none;
+  }
+}
+
