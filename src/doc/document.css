@@ -108,6 +108,9 @@
 .opord .obj-tag.pri { color: var(--red); border-color: var(--red); background: rgba(184,48,40,0.08); }
 .opord .obj-tag.sec { color: var(--gold); border-color: var(--gold); background: rgba(200,160,40,0.08); }
 .opord .obj-tag.ter { color: var(--green); border-color: var(--green); background: rgba(40,120,72,0.08); }
+.opord .mission-image { max-width: 100%; margin: 14px auto; }
+.opord .mission-image img { display: block; width: 100%; height: auto; }
+.opord .mission-image figcaption { margin-top: 6px; color: var(--text); font-size: 12px; text-align: center; overflow-wrap: anywhere; }
 .opord .intel { background: rgba(6,9,10,0.8); border: 1px solid var(--border); border-left: 3px solid var(--green); padding: 12px 16px; margin: 10px 0; }
 .opord .intel.gold { border-left-color: var(--gold); }
 .opord .intel.red { border-left-color: var(--red); }
@@ -146,5 +149,5 @@
 }
 
 @media print {
-  .opord .section, .opord .phase, .opord .intel, .opord .obj { break-inside: avoid; }
+  .opord .section, .opord .phase, .opord .intel, .opord .obj, .opord .mission-image { break-inside: avoid; }
 }

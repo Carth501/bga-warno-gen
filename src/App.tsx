@@ -2,11 +2,13 @@ import { useEffect, useRef, useState } from 'react'
 import './App.css'
 import { SchemaForm } from './components/SchemaForm'
 import { Document } from './doc/Document'
+import type { DocumentImage } from './doc/images'
 import { makeDefaults, type OpordData } from './doc/schema'
 import { useLocalStorage } from './hooks/useLocalStorage'
 
 export default function App() {
   const [data, setData] = useLocalStorage<OpordData>('opord-form', makeDefaults())
+  const [images, setImages] = useState<DocumentImage[]>([])
 
   const [width, setWidth] = useState<number>(() => {
     const saved = Number(localStorage.getItem('form-pane-width'))
@@ -24,8 +26,13 @@ export default function App() {
         <SchemaForm
           data={data}
           onChange={setData}
+          images={images}
+          onImagesChange={setImages}
           onPrint={() => window.print()}
-          onReset={() => setData(makeDefaults())}
+          onReset={() => {
+            setData(makeDefaults())
+            setImages([])
+          }}
         />
       </aside>
       <div
@@ -45,7 +52,7 @@ export default function App() {
         }}
       />
       <main className="pane preview-pane">
-        <Document data={data} />
+        <Document data={data} images={images} />
       </main>
     </div>
   )

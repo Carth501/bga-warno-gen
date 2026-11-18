@@ -1,5 +1,17 @@
 # React + TypeScript + Vite
 
+## Documents and images
+
+Add optional PNG, JPEG, GIF, or WebP images in the Mission section. Change their
+captions, order, and displayed width (25–100%); they appear after the objectives
+in the preview and printed document. Image files retain their original resolution.
+
+Form fields are saved in the browser, but images are kept only until the page is
+reloaded or closed. Export a ZIP to preserve the entire document. The ZIP contains
+`opord.json` and the original image files. Use Import to replace the current
+document with an exported ZIP or a legacy JSON export. Reset clears both fields
+and images.
+
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
 Currently, two official plugins are available:
