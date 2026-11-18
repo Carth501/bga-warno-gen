@@ -8,7 +8,7 @@
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(320px, 420px) 1fr;
+  grid-template-columns: 420px 6px 1fr;
   height: 100vh;
   text-align: left;
 }
@@ -19,8 +19,18 @@
 }
 
 .form-pane {
-  border-right: 1px solid #2e303a;
   background: #1b1c23;
+}
+
+.resizer {
+  cursor: col-resize;
+  background: #2e303a;
+  touch-action: none;
+  user-select: none;
+}
+
+.resizer:hover {
+  background: #4b4f5e;
 }
 
 .preview-pane {
@@ -153,7 +163,8 @@
   body {
     background: #06090a;
   }
-  .form-pane {
+  .form-pane,
+  .resizer {
     display: none;
   }
   .layout {
